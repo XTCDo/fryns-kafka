@@ -1,4 +1,3 @@
-import json
 from kafka import KafkaProducer
 from time import sleep
 from recordbuilder import RecordBuilder
@@ -49,5 +48,5 @@ if __name__ == '__main__':
         encoding = 'utf-8'
         producer.send(KAFKA_TOPIC, alambiek1_record.encode(encoding))
         producer.send(KAFKA_TOPIC, alambiek2_record.encode(encoding))
-
+        print("test")
         sleep(THREAD_SLEEP_DURATION)
