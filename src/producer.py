@@ -4,13 +4,10 @@ from recordbuilder import RecordBuilder
 from temp import temp
 
 if __name__ == '__main__':
-    # Constante waardes
     THREAD_SLEEP_DURATION = 1
     KAFKA_TOPIC = 'fryns-input'
     PLATFORM_URL = 'apachekafka-a6909623a228.victhorious.com:9091'
 
-    # Kafka data producer, met producer.send (zie beneden)
-    # wordt de data naar onze apache kafka server doorgestuurd
     producer = KafkaProducer(bootstrap_servers=PLATFORM_URL)
 
     while True:
