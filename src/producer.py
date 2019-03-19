@@ -11,17 +11,17 @@ if __name__ == '__main__':
     producer = KafkaProducer(bootstrap_servers=PLATFORM_URL)
 
     while True:
-			temperatuur_sensor_1_grote_alambiek = temp.measure()
-			
-			print(temperatuur_sensor_1_grote_alambiek)
+        temperatuur_sensor_1_grote_alambiek = temp.measure()
 
-			grote_alambiek_record_builder = RecordBuilder()
-			grote_alambiek_record_builder.add_tag('name', 'groteAlambiek') \
-				.add_field('temperatuurSensor1', temperatuur_sensor_1_grote_alambiek))
+        print(temperatuur_sensor_1_grote_alambiek)
 
-			grote_alambiek_record = grote_alambiek_record_builder.get_record()
-				
-			encoding = 'utf-8'
-			producer.send(KAFKA_TOPIC, grote_alambiek_record.encode(encoding))
-			
-			sleep(THREAD_SLEEP_DURATION)
+        grote_alambiek_record_builder = RecordBuilder()
+        grote_alambiek_record_builder.add_tag('name', 'groteAlambiek') \
+            .add_field('temperatuurSensor1', temperatuur_sensor_1_grote_alambiek)
+        
+        grote_alambiek_record = grote_alambiek_record_builder.get_record()
+
+        encoding = 'utf-8'
+        producer.send(KAFKA_TOPIC, grote_alambiek_record.encode(encoding))
+
+        sleep(THREAD_SLEEP_DURATION)
